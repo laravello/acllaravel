@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', 'HomeController@index');
+//***************USER SECTION START (admin is below)*****************************************************
 //Auth::routes();
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
@@ -31,4 +33,28 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 //END Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+//***************USER SECTION START (admin is below)*********************************************************
+
+
+//***************ADMIN SECTION START *****************************************************
+Route::get('admin/home', 'AdminController@index');
+//Auth::routes();
+Route::get('admin', 'Admin\LoginController@showLoginForm')->name('admin.login');
+Route::post('admin', 'Admin\LoginController@login');
+//logout NOT necessary because user route is OK for it::: Route::post('logout', 'Admin\LoginController@logout')->name('logout');
+
+// Password Reset Routes...
+//Route::get('admin-password/reset', 'Admin\ForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
+
+
+
+Route::post('admin-password/email', 'Admin\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
+Route::get('admin-password/reset', 'Admin\ForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
+Route::post('admin-password/reset', 'Admin\ResetPasswordController@reset');
+
+Route::get('admin-password/reset/{token}', 'Admin\ResetPasswordController@showResetForm')->name('admin.password.reset');
+//END Auth::routes();
+//***************Admin SECTION START *********************************************************
+
+
+

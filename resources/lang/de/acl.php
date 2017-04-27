@@ -21,7 +21,10 @@ return [
     'login'   => 'Einloggen',
     'confirmpassword'   => 'Passwort bestätigen',
     'login'   => 'Login',
+    'xxx'   => 'xx Login',
     'forgotpassword'   => 'Passwort vergessen',
+    'resetpassword'   => 'Passwort zurücksetzen',
+    'admin' => 'Administrator',
     'rememberme'   => 'Passwort merken',
 
 ];
